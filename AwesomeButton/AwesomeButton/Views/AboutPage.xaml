@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns  ="http://xamarin.com/schemas/2014/forms"
+    xmlns:x ="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class ="AwesomeButton.Views.AboutPage"
+    xmlns:vm="clr-namespace:AwesomeButton.ViewModels"
+    xmlns:controls="clr-namespace:AwesomeButton.Controls;assembly=AwesomeButton"
+    xmlns:ic="clr-namespace:AwesomeButton.Constants;assembly=AwesomeButton"
+    Title   ="Awesome Button Example">
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color
+                x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout
+            BackgroundColor  ="{StaticResource Accent}"
+            VerticalOptions  ="FillAndExpand"
+            HorizontalOptions="Fill">
+            <StackLayout
+                Orientation      ="Horizontal"
+                HorizontalOptions="Center"
+                VerticalOptions  ="Center">
+                <ContentView
+                    Padding        ="0,40,0,40"
+                    VerticalOptions="FillAndExpand">
+                    <Image
+                        Source         ="xamarin_logo.png"
+                        VerticalOptions="Center"
+                        HeightRequest  ="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView
+            Grid.Row="1">
+            <StackLayout
+                Orientation="Vertical"
+                Padding    ="30,24,30,24"
+                Spacing    ="10">
+             <controls:AwesomeButton
+                Command="{Binding ClickCommand}"
+                CornerRadius="10"
+                FontSize="16"
+                PressedOpacity="0.3"
+                DisableOpacity="0.7"
+                HeightRequest="50"
+                Content="Awesome Button #1"
+                TextColor="Black" />
+             <controls:AwesomeButton
+                 Command="{Binding ClickCommand}"
+                 CornerRadius="10"
+                 FontSize="16"
+                 PressedOpacity="0.3"
+                 HeightRequest="50"
+                 HasShadow="True"
+                 Content="Awesome Button #2"
+                 TextColor="Black" />
+             <controls:AwesomeButton
+                 Command="{Binding ClickCommand}"
+                 CornerRadius="10"
+                 FontSize="16"
+                 PressedOpacity="0.3"
+                 HeightRequest="50"
+                 HasShadow="True"
+                 BackgroundColor="Aqua"
+                 Content="Awesome Button #3"
+                 TextColor="Black" />
+            <controls:AwesomeButton
+                Command="{Binding WithParameterCommand}"
+                CommandParameter="{Binding TextColor}"
+                CornerRadius="10"
+                FontSize="16"
+                HeightRequest="50"
+                WidthRequest="75"
+                Content="{Binding ButtonText}"
+                TextColor="Black"
+                HasShadow="True" />
+             <controls:AwesomeButton
+                 Command="{Binding DisabledCommand}"
+                 CornerRadius="10"
+                 DisableOpacity="0.7"
+                 FontSize="16"
+                 HorizontalOptions="Center"
+                 HasShadow="True"
+                 WidthRequest="150">
+                 <StackLayout Orientation="Horizontal" Padding="10">
+                     <Label FontFamily="IconFont" FontSize="20" 
+                            Text="{x:Static ic:IconCodes.Bolt}" 
+                            TextColor="Black" 
+                            VerticalOptions="Center" Margin="5,0" />
+                     <Label FontSize="16" Text="Button #4" 
+                            TextColor="Black" 
+                            VerticalOptions="Center"/>
+                 </StackLayout>
+             </controls:AwesomeButton>
+            <controls:AwesomeButton
+                Command="{Binding DisabledCommand}"
+                CornerRadius="10"
+                FontSize="16"
+                HorizontalOptions="Center"
+                HasShadow="True"
+                WidthRequest="150">
+                <StackLayout Orientation="Horizontal" Padding="10">
+                    <Label FontFamily="IconFont" FontSize="20" 
+                           Text="{x:Static ic:IconCodes.Bolt}" 
+                           TextColor="Black" 
+                           VerticalOptions="Center" Margin="5,0" />
+                    <Label FontSize="16" Text="Button #5" 
+                           TextColor="Black" 
+                           VerticalOptions="Center"/>
+                </StackLayout>
+            </controls:AwesomeButton>
+            <!-- <CollectionView HeightRequest="60" ItemsSource="{Binding IconsCollection}"> -->
+            <!--     <CollectionView.ItemsLayout> -->
+            <!--         <GridItemsLayout HorizontalItemSpacing="5" Orientation="Horizontal" /> -->
+            <!--     </CollectionView.ItemsLayout> -->
+            <!--     <CollectionView.ItemTemplate> -->
+            <!--         <DataTemplate> -->
+            <!--             <controls:AwesomeButton -->
+            <!--                 Padding="0,5" -->
+            <!--                 CornerRadius="25" -->
+            <!--                 FontFamily="IconFont" -->
+            <!--                 FontSize="16" -->
+            <!--                 HeightRequest="50" -->
+            <!--                 HorizontalOptions="Center" -->
+            <!--                 Content="{Binding .}" -->
+            <!--                 TextColor="Black" -->
+            <!--                 WidthRequest="50" /> -->
+            <!--         </DataTemplate> -->
+            <!--     </CollectionView.ItemTemplate> -->
+            <!-- </CollectionView> -->
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
