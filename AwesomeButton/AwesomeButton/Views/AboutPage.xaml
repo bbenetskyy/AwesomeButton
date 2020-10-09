@@ -55,7 +55,7 @@
                 DisableOpacity="0.7"
                 HeightRequest="50"
                 Content="Awesome Button #1"
-                TextColor="Black" />
+                TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" />
              <controls:AwesomeButton
                  Command="{Binding ClickCommand}"
                  CornerRadius="10"
@@ -64,7 +64,7 @@
                  HeightRequest="50"
                  HasShadow="True"
                  Content="Awesome Button #2"
-                 TextColor="Black" />
+                 TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" />
              <controls:AwesomeButton
                  Command="{Binding ClickCommand}"
                  CornerRadius="10"
@@ -74,7 +74,7 @@
                  HasShadow="True"
                  BackgroundColor="Aqua"
                  Content="Awesome Button #3"
-                 TextColor="Black" />
+                 TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" />
             <controls:AwesomeButton
                 Command="{Binding WithParameterCommand}"
                 CommandParameter="{Binding TextColor}"
@@ -83,7 +83,7 @@
                 HeightRequest="50"
                 WidthRequest="75"
                 Content="{Binding ButtonText}"
-                TextColor="Black"
+                TextColor="{x:AppThemeBinding Light='Black', Dark='White' }"
                 HasShadow="True" />
              <controls:AwesomeButton
                  Command="{Binding DisabledCommand}"
@@ -96,10 +96,10 @@
                  <StackLayout Orientation="Horizontal" Padding="10">
                      <Label FontFamily="IconFont" FontSize="20" 
                             Text="{x:Static ic:IconCodes.Bolt}" 
-                            TextColor="Black" 
+                            TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" 
                             VerticalOptions="Center" Margin="5,0" />
                      <Label FontSize="16" Text="Button #4" 
-                            TextColor="Black" 
+                            TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" 
                             VerticalOptions="Center"/>
                  </StackLayout>
              </controls:AwesomeButton>
@@ -113,32 +113,43 @@
                 <StackLayout Orientation="Horizontal" Padding="10">
                     <Label FontFamily="IconFont" FontSize="20" 
                            Text="{x:Static ic:IconCodes.Bolt}" 
-                           TextColor="Black" 
+                           TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" 
                            VerticalOptions="Center" Margin="5,0" />
                     <Label FontSize="16" Text="Button #5" 
-                           TextColor="Black" 
+                           TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" 
                            VerticalOptions="Center"/>
                 </StackLayout>
             </controls:AwesomeButton>
-            <!-- <CollectionView HeightRequest="60" ItemsSource="{Binding IconsCollection}"> -->
-            <!--     <CollectionView.ItemsLayout> -->
-            <!--         <GridItemsLayout HorizontalItemSpacing="5" Orientation="Horizontal" /> -->
-            <!--     </CollectionView.ItemsLayout> -->
-            <!--     <CollectionView.ItemTemplate> -->
-            <!--         <DataTemplate> -->
-            <!--             <controls:AwesomeButton -->
-            <!--                 Padding="0,5" -->
-            <!--                 CornerRadius="25" -->
-            <!--                 FontFamily="IconFont" -->
-            <!--                 FontSize="16" -->
-            <!--                 HeightRequest="50" -->
-            <!--                 HorizontalOptions="Center" -->
-            <!--                 Content="{Binding .}" -->
-            <!--                 TextColor="Black" -->
-            <!--                 WidthRequest="50" /> -->
-            <!--         </DataTemplate> -->
-            <!--     </CollectionView.ItemTemplate> -->
-            <!-- </CollectionView> -->
+             <controls:AwesomeButton
+                 Command="{Binding ClickCommand}"
+                 CornerRadius="10"
+                 FontSize="16"
+                 PressedOpacity="0.3"
+                 DisableOpacity="0.7"
+                 HeightRequest="50"
+                 BorderColor="Blue"
+                 Content="Awesome Button #6"
+                 TextColor="{x:AppThemeBinding Light='Black', Dark='White' }" />
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout HeightRequest="60" Orientation="Horizontal" Spacing="5" BindableLayout.ItemsSource="{Binding IconsCollection}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <controls:AwesomeButton
+                                    Padding="0,5"
+                                    CornerRadius="25"
+                                    FontFamily="IconFont"
+                                    FontSize="16"
+                                    HeightRequest="50"
+                                    PressedOpacity="0.3"
+                                    BorderColor="Gray"
+                                    HorizontalOptions="Center"
+                                    Content="{Binding .}"
+                                    TextColor="{x:AppThemeBinding Light='Black', Dark='White' }"
+                                    WidthRequest="50" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
             </StackLayout>
         </ScrollView>
     </Grid>

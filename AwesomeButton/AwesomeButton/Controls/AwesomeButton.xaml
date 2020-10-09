@@ -21,13 +21,13 @@
                                 <VisualState x:Name="Pressed">
                                     <VisualState.Setters>
                                         <Setter Property="Opacity" Value="0.7" />
-                                        <Setter Property="BackgroundColor" Value="Black" />
+                                        <Setter Property="BackgroundColor" Value="{x:AppThemeBinding Light='Black', Dark='White' }" />
                                     </VisualState.Setters>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
                                     <VisualState.Setters>
                                         <Setter Property="Opacity" Value="0.3" />
-                                        <Setter Property="BackgroundColor" Value="Black" />
+                                        <Setter Property="BackgroundColor" Value="{x:AppThemeBinding Light='Black', Dark='White' }" />
                                     </VisualState.Setters>
                                 </VisualState>
                             </VisualStateGroup>

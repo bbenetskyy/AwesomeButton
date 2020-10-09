@@ -47,6 +47,9 @@ namespace AwesomeButton.Controls
             nameof(DisableOpacity), typeof(double), typeof(AwesomeButton), 0.3,
             propertyChanged:  (b, x, y) => ((AwesomeButton)b).UpdateDisableOpacity());
         
+        public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(
+            nameof(BorderColor), typeof(Color), typeof(AwesomeButton), Color.Transparent);
+        
         [TypeConverter(typeof(TextContentTypeConverter))]
         public object Content
         {
@@ -97,6 +100,12 @@ namespace AwesomeButton.Controls
             set => SetValue(HasShadowProperty, value);
         }
 
+        public Color BorderColor
+        {
+            get => (Color)GetValue(BorderColorProperty);
+            set => SetValue(BorderColorProperty, value);
+        }
+
         public object CommandParameter
         {
             get => (object)GetValue(CommandParameterProperty);
@@ -123,6 +132,7 @@ namespace AwesomeButton.Controls
             backBox.SetBinding(BoxView.BackgroundColorProperty, new Binding(nameof(BackgroundColor), source: this));
             
             var border = (Frame)GetTemplateChild("BorderFrame");
+            border.SetBinding(Frame.BorderColorProperty, new Binding(nameof(BorderColor), source: this));
             border.SetBinding(Frame.CornerRadiusProperty, new Binding(nameof(CornerRadius), source: this));
             border.SetBinding(Frame.HasShadowProperty, new Binding(nameof(HasShadow), source: this));
 
